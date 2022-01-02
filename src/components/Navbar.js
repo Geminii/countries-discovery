@@ -7,7 +7,7 @@ export default function Header() {
         </a>
 
         <div>
-          <p class="text-xs md:text-base">Dark mode</p>
+          <p className="text-xs md:text-base">Dark mode</p>
         </div>
       </div>
     </header>

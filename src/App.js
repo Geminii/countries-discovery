@@ -1,15 +1,33 @@
 import Navbar from './components/Navbar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom"
+import Home from './pages/Home'
+import Error from './pages/Error'
+import CountryDetails from './pages/CountryDetails'
 
 export default function App() {
   return (
-    <>
+    <Router>
       <Navbar />
 
-      <main className="bg-dark-blue-bg min-h-screen px-5 py-6">
-        <h1 className="text-3xl font-bold underline text-neutrals-white">
-          Hello world!
-        </h1>
+      <main className="bg-dark-blue-bg min-h-screen">
+        <div className="max-w-7xl mx-auto px-5 py-6">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/country/:countryId">
+              <CountryDetails />
+            </Route>
+            <Route path="*">
+              <Error />
+            </Route>
+          </Switch>
+        </div>
       </main> 
-    </>
+    </Router>
   )
 }
