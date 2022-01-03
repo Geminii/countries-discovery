@@ -13,6 +13,7 @@ module.exports = {
       'dark-gray': 'var(--dark-gray)',
       'light-gray': 'var(--light-gray)',
       'neutrals-white': 'var(--neutrals-white)',
+      'transparent': 'transparent',
     },
   },
   plugins: [],
