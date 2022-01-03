@@ -1,14 +1,59 @@
-export default function WorldRegionsFilter() {
+import { useEffect, useState } from "react"
+
+export default function WorldRegionsFilter({ regionSelected, handleSelectRegion }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [regions, setRegions] = useState([
+    { id: 1, name: 'Africa', value: 'Africa', selected: false },
+    { id: 2, name: 'America', value: 'Americas', selected: false },
+    { id: 3, name: 'Asia', value: 'Asia', selected: false },
+    { id: 4, name: 'Europe', value: 'Europe', selected: false },
+    { id: 5, name: 'Oceania', value: 'Oceania', selected: false },
+  ])
+
+  const changeRegion = (newRegion) => {
+    const hasRegionSelected = regions.some(region => region.value === newRegion.value && region.selected)
+
+    if (hasRegionSelected) {
+      setRegions(regions.map(region => {
+        region.selected = false
+        return region
+      }))
+      handleSelectRegion(null)
+    } else {
+      setRegions(prevRegions => {
+        return prevRegions.map(region => {
+          region.selected = region.value === newRegion.value
+          return region
+        })
+      })
+      handleSelectRegion(newRegion)
+    }
+
+    setIsOpen(false)
+  }
+
+  useEffect(() => {
+    if (regionSelected) {
+      setRegions(prevRegions => {
+        return prevRegions.map(region => {
+          region.selected = region.value === regionSelected.value
+          return region
+        })
+      })
+    }
+  }, [ regionSelected ])
+
   return (
-    <div className="inline-block text-neutrals-white text-sm min-w-[248px]">
+    <div className="relative inline-block text-neutrals-white text-sm min-w-[248px]">
       <button 
         className="flex justify-between items-center px-7 py-5 rounded-md bg-dark-blue w-full"
         id="dropdownMenuButton"
         data-toggle="dropdown" 
         aria-haspopup="true" 
         aria-expanded="false"
+        onClick={ () => setIsOpen(!isOpen) }
       >
-        Filter by Region
+        { regionSelected ? regions.find(region => region.value === regionSelected.value).name : 'Filter by Region' }
 
         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -16,14 +61,24 @@ export default function WorldRegionsFilter() {
       </button>
 
       <ul 
-        className="hidden px-7 py-5 rounded-md bg-dark-blue mt-2" 
+        className={ 
+          `absolute top-16 w-full rounded-md bg-dark-blue py-2 mt-2 ${ isOpen ? 'visible' : 'invisible' }` 
+        }
         aria-labelledby="dropdownMenuButton"
       >
-        <li className="mb-1">Africa</li>
-        <li className="mb-1">America</li>
-        <li className="mb-1">Asia</li>
-        <li className="mb-1">Europe</li>
-        <li>Oceania</li>
+        {
+          regions.map(region => (
+            <li 
+              className={
+                `py-1 px-7 hover:text-dark-blue-text hover:cursor-pointer ${ region.selected ? 'text-dark-blue-text' : '' }`
+              }
+              key={ region.id }
+              onClick={ () => changeRegion(region) }
+            >
+              { region.name }
+            </li>
+          ))
+        }
       </ul>
     </div>
   )

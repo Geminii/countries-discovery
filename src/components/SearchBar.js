@@ -1,4 +1,11 @@
-export default function SearchBar() {
+export default function SearchBar({ searchCountry, handleSearch }) {
+
+  const handleKeyPressEnter = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch(event.target.value)
+    }
+  }
+
   return (
     <div className="flex items-center px-10 py-3 bg-dark-blue rounded-md">
       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-neutrals-white shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -7,8 +14,10 @@ export default function SearchBar() {
 
       <input 
         className="text-neutrals-white bg-transparent outline-none w-full ml-8"
-        type="text" 
-        placeholder="Search for a country..." 
+        type="text"
+        defaultValue={ searchCountry }
+        placeholder="Search for a country..."
+        onKeyPress={ (e) => handleKeyPressEnter(e) }
       />
     </div>
   )
