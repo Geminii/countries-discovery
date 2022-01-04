@@ -10,25 +10,23 @@ const useFetch = (url) => {
     setData(null)
     setIsLoading(true)
 
-    setTimeout(() => {
-      fetch(url, { signal: abortCont.signal })
-        .then(res => {
-          if (!res.ok) throw Error('No data ...')
-          
-          return res.json()
-        })
-        .then(data => {
-          setData(data)
+    fetch(url, { signal: abortCont.signal })
+      .then(res => {
+        if (!res.ok) throw Error('No data ...')
+        
+        return res.json()
+      })
+      .then(data => {
+        setData(data)
+        setIsLoading(false)
+        setError(null)
+      })
+      .catch(err => {
+        if (err.name !== 'AbortError') {
           setIsLoading(false)
-          setError(null)
-        })
-        .catch(err => {
-          if (err.name !== 'AbortError') {
-            setIsLoading(false)
-            setError(err.message)
-          }
-        })
-    }, 1000)
+          setError(err.message)
+        }
+      })
 
     return () => abortCont.abort()
   }, [url])
