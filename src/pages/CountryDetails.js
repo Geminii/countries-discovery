@@ -14,16 +14,18 @@ export default function CountryDetails() {
   const [ borderCountries, setBorderCountries ] = useState([])
 
   const getBordersCountry = ({ borders }) => {
-    fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}/alpha?codes=${ borders.join(',') }`)
-    .then(response => response.json())
-    .then((bordersCountries) => {
-      setBorderCountries(bordersCountries.map(country => {
-        return {
-          id: Math.random(),
-          name: country.name.common
-        }
-      }))
-    })
+    if (borders) {
+      fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}/alpha?codes=${ borders.join(',') }`)
+        .then(response => response.json())
+        .then((bordersCountries) => {
+          setBorderCountries(bordersCountries.map(country => {
+            return {
+              id: Math.random(),
+              name: country.name.common
+            }
+          }))
+        })
+    }
   }
 
   useEffect(() => {
@@ -103,27 +105,30 @@ export default function CountryDetails() {
               </div>
             </div>
 
-            <div className="flex flex-col items-start sm:flex-row mt-16">
-              <p className="font-semibold mr-0 mb-4 sm:mb-0 sm:mr-4 min-w-[145px] pt-1">
-                Border Countries: 
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {
-                  borderCountries && borderCountries.map(borderCountry => (
-                    <Link
-                      className='cursor-pointer'
-                      to={ `/country/${borderCountry.name}` }
-                      key={ borderCountry.id }
-                    >
-                      <BaseButton
-                        value={ borderCountry.name }
-                        size="medium" 
-                      />
-                    </Link>
-                  ))
-                }
+            {
+              borderCountries.length > 0 && 
+              <div className="flex flex-col items-start sm:flex-row mt-16">
+                <p className="font-semibold mr-0 mb-4 sm:mb-0 sm:mr-4 min-w-[145px] pt-1">
+                  Border Countries: 
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {
+                    borderCountries.map(borderCountry => (
+                      <Link
+                        className='cursor-pointer'
+                        to={ `/country/${borderCountry.name}` }
+                        key={ borderCountry.id }
+                      >
+                        <BaseButton
+                          value={ borderCountry.name }
+                          size="medium" 
+                        />
+                      </Link>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+            }
           </div>
         </div>
       }
