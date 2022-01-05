@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ReactComponent as ChevronDownIcon } from "../assets/svg/chevron-down.svg"
 
 export default function WorldRegionsFilter({ regionSelected, handleSelectRegion }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -55,9 +56,7 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
       >
         { regionSelected ? regions.find(region => region.value === regionSelected.value).name : 'Filter by Region' }
 
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-        </svg>
+        <ChevronDownIcon />
       </button>
 
       <ul 

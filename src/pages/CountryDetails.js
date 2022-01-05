@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom"
-import { useState } from "react/cjs/react.development";
-import BaseButton from "../components/BaseButton";
+import { useState } from "react/cjs/react.development"
+import BaseButton from "../components/BaseButton"
 import useFetch from "../composables/useFetch"
-import { formatPopulation } from "../utils/format";
+import { formatPopulation } from "../utils/format"
+import { ReactComponent as ArrowLeftIcon } from "../assets/svg/arrow-left.svg"
 
 export default function CountryDetails() {
   const { countryId } = useParams()
@@ -36,11 +37,7 @@ export default function CountryDetails() {
   return ( 
     <div className="mt-2">
       <Link to="/" className="inline-block mt-5">
-        <BaseButton value="Back" size="large" startIcon={
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-        } />
+        <BaseButton value="Back" size="large" startIcon={ <ArrowLeftIcon /> } />
       </Link>
 
       { !isLoading && error && <p className='text-neutrals-white text-center mt-6'>{ error }</p> }

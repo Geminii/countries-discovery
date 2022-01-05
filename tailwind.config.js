@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx,svg}",
   ],
   theme: {
     fontFamily: {
@@ -18,10 +18,3 @@ module.exports = {
   },
   plugins: [],
 }
-
-// --dark-blue-color: hsl(209, 23%, 22%);
-//   --dark-blue-bg: hsl(207, 26%, 17%);
-//   --dark-blue-text-color: hsl(200, 15%, 8%);
-//   --dark-gray: hsl(0, 0%, 52%);
-//   --light-gray: hsl(0, 0%, 98%);
-//   --neutrals-white: hsl(0, 0%, 100%);
