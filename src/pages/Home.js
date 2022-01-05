@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import CountryCard from '../components/CountryCard'
 import SearchBar from '../components/SearchBar'
 import WorldRegionsFilter from '../components/WorldRegionsFilter'
@@ -43,14 +44,17 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9 my-9 mx-6 md:my-12 md:mx-0">
           {
             countries
-              .filter(country => country.population !== 0)
-              .filter(country => regionFilter ? country.region === regionFilter.value : true)
-              .map(country => (
-                <CountryCard 
-                  key={country.name.common}
-                  country={ country } 
-                />
-              ))
+            .filter(country => country.population !== 0)
+            .filter(country => regionFilter ? country.region === regionFilter.value : true)
+            .map(country => (
+              <Link
+                className='cursor-pointer'
+                to={`/country/${country.name.common}`}
+                key={country.name.common}
+              >
+                <CountryCard country={ country } />
+              </Link>
+            ))
           }
         </div>
       }

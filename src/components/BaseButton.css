@@ -1,0 +1,7 @@
+.medium {
+  @apply px-7 py-2 text-sm bg-dark-blue;
+}
+
+.large {
+  @apply px-12 py-3 text-lg;
+}
