@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LazyLoad } from 'react-observer-api'
 import CountryCard from '../components/CountryCard'
 import SearchBar from '../components/SearchBar'
 import WorldRegionsFilter from '../components/world-regions-filter/WorldRegionsFilter'
@@ -52,7 +53,9 @@ export default function Home() {
                 to={`/country/${country.name.common}`}
                 key={country.name.common}
               >
-                <CountryCard country={ country } />
+                <LazyLoad>
+                  <CountryCard country={ country } />
+                </LazyLoad>
               </Link>
             ))
           }
