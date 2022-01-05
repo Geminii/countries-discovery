@@ -8,6 +8,7 @@ module.exports = {
     },
     colors: {
       'dark-blue': 'var(--dark-blue)',
+      'dark-blue-hover': 'var(--dark-blue-hover)',
       'dark-blue-bg': 'var(--dark-blue-bg)',
       'dark-blue-text': 'var(--dark-blue-text)',
       'dark-gray': 'var(--dark-gray)',

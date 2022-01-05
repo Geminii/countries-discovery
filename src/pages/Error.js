@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import BaseButton from '../components/BaseButton'
+import BaseButton from '../components/button/BaseButton'
 import { ReactComponent as ArrowLeftIcon } from "../assets/svg/arrow-left.svg"
 
 export default function Error() {

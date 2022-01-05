@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { ReactComponent as ChevronDownIcon } from "../assets/svg/chevron-down.svg"
+import './WorldRegionsFilter.css'
+import { ReactComponent as ChevronDownIcon } from "../../assets/svg/chevron-down.svg"
 
 export default function WorldRegionsFilter({ regionSelected, handleSelectRegion }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,7 +48,9 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
   return (
     <div className="relative inline-block text-neutrals-white text-sm min-w-[248px]">
       <button 
-        className="flex justify-between items-center px-7 py-5 rounded-md bg-dark-blue w-full"
+        className={
+          `flex justify-between items-center px-7 py-5 rounded-md hover:bg-dark-blue-hover w-full ease-in-out duration-300 ${ isOpen ? 'is-open bg-dark-blue-hover' : 'bg-dark-blue' }`
+        }
         id="dropdownMenuButton"
         data-toggle="dropdown" 
         aria-haspopup="true" 
@@ -60,16 +63,14 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
       </button>
 
       <ul 
-        className={ 
-          `absolute top-16 w-full rounded-md bg-dark-blue py-2 mt-2 ${ isOpen ? 'visible' : 'invisible' }` 
-        }
+        className="items"
         aria-labelledby="dropdownMenuButton"
       >
         {
           regions.map(region => (
             <li 
               className={
-                `py-1 px-7 hover:text-dark-blue-text hover:cursor-pointer ${ region.selected ? 'text-dark-blue-text' : '' }`
+                `py-1 px-7 hover:bg-dark-blue-hover hover:cursor-pointer ${ region.selected ? 'bg-dark-blue-hover' : '' }`
               }
               key={ region.id }
               onClick={ () => changeRegion(region) }

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom"
 import { useState } from "react/cjs/react.development"
-import BaseButton from "../components/BaseButton"
+import BaseButton from "../components/button/BaseButton"
 import useFetch from "../composables/useFetch"
 import { formatPopulation } from "../utils/format"
 import { ReactComponent as ArrowLeftIcon } from "../assets/svg/arrow-left.svg"

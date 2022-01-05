@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CountryCard from '../components/CountryCard'
 import SearchBar from '../components/SearchBar'
-import WorldRegionsFilter from '../components/WorldRegionsFilter'
+import WorldRegionsFilter from '../components/world-regions-filter/WorldRegionsFilter'
 import useFetch from '../composables/useFetch'
 
 const ALL_COUNTRIES_ENDPOINT = 'all'

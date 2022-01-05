@@ -8,16 +8,21 @@ export default function SearchBar({ searchCountry, handleSearch }) {
   }
 
   return (
-    <div className="flex items-center px-10 py-3 bg-dark-blue rounded-md">
-      <SearchIcon />
-
+    <label class="relative block rounded-md">
+      <span class="sr-only">Search</span>
+        <span class="absolute inset-y-0 left-4 flex items-center pl-2">
+        
+        <SearchIcon />
+      </span>
+      
       <input 
-        className="text-neutrals-white bg-transparent outline-none w-full ml-8"
-        type="text"
-        defaultValue={ searchCountry }
+        className="block w-full border border-transparent rounded-md px-16 py-6 shadow-sm bg-dark-blue hover:bg-dark-blue-hover focus:outline-none focus:bg-dark-blue-hover focus:border-dark-blue-text focus:ring-neutrals-white focus:ring-1 sm:text-sm text-neutrals-white ease-in-out duration-300" 
+        type="text" 
         placeholder="Search for a country..."
         onKeyPress={ (e) => handleKeyPressEnter(e) }
+        onBlur={ (e) => handleSearch(e.target.value) }
+        name="search"
       />
-    </div>
+    </label>
   )
 }
