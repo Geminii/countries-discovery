@@ -1,5 +1,5 @@
 .items {
-  @apply absolute top-16 w-full rounded-md bg-dark-blue py-2 mt-2 opacity-0;
+  @apply absolute top-16 w-full rounded-md bg-neutrals-white dark:bg-dark-blue py-2 mt-2 opacity-0 drop-shadow-md z-10;
 
   -webkit-transform: translateY(6px);
   transform: translateY(6px);

@@ -6,7 +6,7 @@ export default function Error() {
   return ( 
     <div className="mt-2">
       <Link to="/" className="inline-block mt-5">
-        <BaseButton value="Back" icon={ <ArrowLeftIcon /> } />
+        <BaseButton value="Back" icon={ <ArrowLeftIcon className="h-6 w-6" /> } />
       </Link>
       
       <h1 className="text-3xl text-light-gray mt-8">

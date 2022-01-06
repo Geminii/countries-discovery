@@ -13,7 +13,7 @@ export default function App() {
     <Router>
       <Navbar />
 
-      <main className="bg-dark-blue-bg min-h-screen">
+      <main className="bg-neutrals-white dark:bg-dark-blue-bg transition-colors ease-in-out duration-300 min-h-screen">
         <div className="max-w-7xl mx-auto px-5 py-6">
           <Switch>
             <Route exact path="/">

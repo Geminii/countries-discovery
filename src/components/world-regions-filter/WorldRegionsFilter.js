@@ -46,10 +46,10 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
   }, [ regionSelected ])
 
   return (
-    <div className="relative inline-block text-neutrals-white text-sm min-w-[248px]">
+    <div className="relative inline-block text-dark-blue-text dark:text-neutrals-white text-sm min-w-[248px]">
       <button 
         className={
-          `flex justify-between items-center px-7 py-5 rounded-md hover:bg-dark-blue-hover w-full ease-in-out duration-300 ${ isOpen ? 'is-open bg-dark-blue-hover' : 'bg-dark-blue' }`
+          `flex justify-between items-center px-7 py-5 border border-transparent rounded-md hover:bg-light-gray hover:dark:bg-dark-blue-hover w-full ease-in-out duration-300 drop-shadow-md ${ isOpen ? 'is-open border-dark-blue-text bg-light-gray dark:bg-dark-blue-hover' : 'bg-neutrals-white dark:bg-dark-blue' }`
         }
         id="dropdownMenuButton"
         data-toggle="dropdown" 
@@ -59,7 +59,7 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
       >
         { regionSelected ? regions.find(region => region.value === regionSelected.value).name : 'Filter by Region' }
 
-        <ChevronDownIcon />
+        <ChevronDownIcon className="h-4 w-4" />
       </button>
 
       <ul 
@@ -70,7 +70,7 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
           regions.map(region => (
             <li 
               className={
-                `py-1 px-7 hover:bg-dark-blue-hover hover:cursor-pointer ${ region.selected ? 'bg-dark-blue-hover' : '' }`
+                `py-1 px-7 bg-neutrals-white hover:bg-light-gray hover:dark:bg-dark-blue-hover hover:cursor-pointer ${ region.selected ? 'bg-light-gray dark:bg-dark-blue-hover' : '' }`
               }
               key={ region.id }
               onClick={ () => changeRegion(region) }

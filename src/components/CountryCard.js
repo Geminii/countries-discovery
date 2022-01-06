@@ -2,14 +2,14 @@ import { formatPopulation } from "../utils/format";
 
 export default function CountryCard({ country }) {
   return (
-    <div className="rounded-md bg-dark-blue overflow-hidden h-full hover:shadow-xl">
+    <div className="rounded-md bg-neutrals-white dark:bg-dark-blue transition-colors ease-in-out duration-300 overflow-hidden h-full drop-shadow-md hover:shadow-xl">
       <img 
-        className="h-[200px] w-full"
+        className="h-[200px] w-full drop-shadow-md"
         src={ country.flags.png } 
         alt={ country.name.official } 
       />
 
-      <div className='pt-8 pb-14 px-8 text-neutrals-white text-sm'>
+      <div className='pt-8 pb-14 px-8 text-dark-blue-text dark:text-neutrals-white text-sm'>
         <h2 className='font-bold text-lg mb-7 min-h-[56px]'>{ country.name.official }</h2>
 
         <div>

@@ -39,20 +39,20 @@ export default function CountryDetails() {
   return ( 
     <div className="mt-2">
       <Link to="/" className="inline-block mt-5">
-        <BaseButton value="Back" size="large" startIcon={ <ArrowLeftIcon /> } />
+        <BaseButton value="Back" size="large" startIcon={ <ArrowLeftIcon className="h-6 w-6" /> } />
       </Link>
 
-      { !isLoading && error && <p className='text-neutrals-white text-center mt-6'>{ error }</p> }
-      { isLoading && <p className='text-neutrals-white text-center mt-6'>Loading ...</p> }
+      { !isLoading && error && <p className='text-dark-blue-text dark:text-neutrals-white text-center mt-6'>{ error }</p> }
+      { isLoading && <p className='text-dark-blue-text dark:text-neutrals-white text-center mt-6'>Loading ...</p> }
       {
         country && <div className="grid grid-cols-1 md:gap-8 lg:gap-36 sm:grid-cols-2 mt-32">
           <img 
-            className="w-full pr-12 py-0 sm:py-11 lg:py-0"
+            className="w-full pr-12 py-0 sm:py-11 lg:py-0 drop-shadow-md"
             src={ country.flags.png } 
             alt={ country.name.official } 
           />
           
-          <div className="py-11 text-neutrals-white">
+          <div className="py-11 transition-colors ease-in-out duration-300 text-dark-blue-text dark:text-neutrals-white">
             <h2 className='font-bold text-2xl mb-9'>
               { country.name.common }
             </h2>
