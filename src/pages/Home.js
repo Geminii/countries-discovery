@@ -59,6 +59,7 @@ export default function Home() {
                 className='cursor-pointer'
                 to={`/country/${country.name.common}`}
                 key={country.name.common}
+                title={ `Country of ${ country.name.official }` }
               >
                 <LazyLoad>
                   <CountryCard country={ country } />

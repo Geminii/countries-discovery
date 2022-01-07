@@ -8,7 +8,7 @@ export default function SearchBar({ searchCountry, handleSearch }) {
   }
 
   return (
-    <label className="relative block rounded-md">
+    <label className="relative block rounded-md lg:min-w-[480px]">
       <span className="sr-only">Search</span>
         <span className="absolute inset-y-0 left-4 flex items-center pl-2">
         

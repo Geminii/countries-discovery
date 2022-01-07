@@ -47,7 +47,7 @@ export default function CountryDetails() {
       {
         country && <div className="grid grid-cols-1 md:gap-8 lg:gap-36 sm:grid-cols-2 mt-32">
           <img 
-            className="w-full pr-12 py-0 sm:py-11 lg:py-0 drop-shadow-md"
+            className="w-full pr-0 sm:pr-12 py-0 sm:py-11 lg:py-0 drop-shadow-md object-cover"
             src={ country.flags.png } 
             alt={ country.name.official } 
           />
