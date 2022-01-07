@@ -1,8 +1,7 @@
-import { useState } from "react/cjs/react.development"
 import { ReactComponent as SunIcon } from "../assets/svg/sun.svg"
 import { ReactComponent as MoonIcon } from "../assets/svg/moon.svg"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function Header() {
   const [ mode, setMode ] = useState(localStorage.theme || 'light')
