@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
-import { useState } from "react/cjs/react.development"
 import BaseButton from "../components/button/BaseButton"
 import useFetch from "../composables/useFetch"
 import { formatPopulation } from "../utils/format"
