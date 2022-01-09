@@ -70,7 +70,7 @@ export default function WorldRegionsFilter({ regionSelected, handleSelectRegion 
           regions.map(region => (
             <li 
               className={
-                `py-1 px-7 bg-neutrals-white hover:bg-light-gray hover:dark:bg-dark-blue-hover hover:cursor-pointer ${ region.selected ? 'bg-light-gray dark:bg-dark-blue-hover' : '' }`
+                `py-1 px-7 bg-neutrals-white dark:bg-dark-blue hover:bg-light-gray hover:dark:bg-dark-blue-hover hover:cursor-pointer ${ region.selected ? 'bg-light-gray dark:bg-dark-blue-hover' : '' }`
               }
               key={ region.id }
               onClick={ () => changeRegion(region) }
