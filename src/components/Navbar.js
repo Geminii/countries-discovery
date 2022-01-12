@@ -43,9 +43,9 @@ export default function Header() {
           { mode === 'light' && <MoonIcon className="w-4 h-4" /> }
           { mode === 'dark' && <SunIcon className="w-4 h-4" /> }
           
-          <p className="text-xs md:text-base">
+          <span className="text-xs md:text-base">
             Dark Mode
-          </p>
+          </span>
         </button>
       </div>
     </header>

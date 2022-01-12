@@ -57,8 +57,8 @@ export default function Home() {
             .map(country => (
               <Link
                 className='cursor-pointer'
-                to={`/country/${country.name.common}`}
-                key={country.name.common}
+                to={ encodeURI(`/country/${country.name.common}`)}
+                key={ country.name.common}
                 title={ `Country of ${ country.name.official }` }
               >
                 <LazyLoad>
